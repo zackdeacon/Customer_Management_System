@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1225.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.vip_customer_info_controller">
+   <children>
+      <Button layoutX="1138.0" layoutY="640.0" mnemonicParsing="false" onAction="#exitProgram" text="Close" />
+      <Button layoutX="1054.0" layoutY="640.0" mnemonicParsing="false" onAction="#goToCustomers" text="Go Back" />
+      <Button layoutX="1054.0" layoutY="550.0" mnemonicParsing="false" onAction="#createVIP" prefHeight="25.0" prefWidth="129.0" text="Create New VIP" />
+      <TextField fx:id="customerName" layoutX="1040.0" layoutY="200.0" />
+      <TextField fx:id="customerAddress" layoutX="1040.0" layoutY="250.0" />
+      <TextField fx:id="customerPostalCode" layoutX="1040.0" layoutY="300.0" />
+      <TextField fx:id="customerPhone" layoutX="1040.0" layoutY="350.0" />
+      <TextField fx:id="customerCompanyName" layoutX="1040.0" layoutY="400.0" />
+      <ComboBox fx:id="customerCountry" layoutX="1040.0" layoutY="450.0" prefWidth="150.0" onAction="#countrySelected"/>
+       <ComboBox fx:id="customerDivision" layoutX="1040.0" layoutY="500.0" prefWidth="150.0" />
+      <Label layoutX="574.0" layoutY="78.0" text="VIP Customers" />
+      <Label layoutX="875.0" layoutY="204.0" text="Customer Name:" />
+      <Label layoutX="875.0" layoutY="254.0" text="Customer Address:" />
+      <Label layoutX="875.0" layoutY="304.0" text="Customer Postal Code:" />
+      <Label layoutX="875.0" layoutY="354.0" text="Customer Phone:" />
+      <Label layoutX="875.0" layoutY="404.0" text="Customer Company Name:" />
+      <Label layoutX="875.0" layoutY="454.0" text="Customer Country:" />
+       <Label layoutX="875.0" layoutY="504.0" text="Customer Division:" />
+      <TableView fx:id="vipCustomerTable" layoutX="20.0" layoutY="200.0" prefHeight="442.0" prefWidth="811.0">
+        <columns>
+          <TableColumn fx:id="customerIDCol" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="customerNameCol" prefWidth="211.0" text="Customer Name" />
+            <TableColumn fx:id="customerAddressCol" prefWidth="147.0" text="Address" />
+            <TableColumn fx:id="customerPostalCodeCol" prefWidth="84.0" text="Postal Code" />
+            <TableColumn fx:id="customerPhoneCol" prefWidth="62.0" text="Phone" />
+            <TableColumn fx:id="customerCompanyNameCol" prefWidth="126.0" text="Company Name" />
+            <TableColumn fx:id="customerDivisionCol" prefWidth="61.0" text="Division" />
+            <TableColumn fx:id="customerCountryCol" prefWidth="69.0" text="Country" />
+        </columns>
+      </TableView>
+      <Button layoutX="1054.0" layoutY="580.0" mnemonicParsing="false" onAction="#updateVIP" prefHeight="25.0" prefWidth="129.0" text="Update VIP" />
+      <Button layoutX="1054.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteVIP" prefHeight="25.0" prefWidth="129.0" text="Delete VIP" />
+   </children>
+</AnchorPane>

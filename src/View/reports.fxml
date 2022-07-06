@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.reports_controller">
+   <children>
+      <Button layoutX="19.0" layoutY="101.0" mnemonicParsing="false" onAction="#appointmentByType" text="Customer Appointments by Type and Month" />
+      <ComboBox fx:id="typeBox" layoutX="181.0" layoutY="137.0" prefWidth="150.0" />
+      <ComboBox fx:id="monthBox" layoutX="19.0" layoutY="137.0" prefWidth="150.0" />
+      <Label fx:id="typeLabel" layoutX="520.0" layoutY="105.0" text="" />
+      <Label fx:id="typeNum" layoutX="839.0" layoutY="105.0" text="" />
+      <Label fx:id="monthLabel" layoutX="520.0" layoutY="149.0" text="" />
+      <Label fx:id="monthNum" layoutX="839.0" layoutY="149.0" text="" />
+      <Button layoutX="14.0" layoutY="232.0" mnemonicParsing="false" onAction="#schedByContact" text="Generate Contact Schedule" />
+      <ComboBox fx:id="contactBox" layoutX="227.0" layoutY="232.0" prefWidth="150.0" />
+      <Button layoutX="14.0" layoutY="679.0" mnemonicParsing="false" onAction="#customerByCountry" text="Customers by Country " />
+      <ComboBox fx:id="countryBox" layoutX="227.0" layoutY="679.0" prefWidth="150.0" />
+      <Label fx:id="customerLabel" layoutX="520.0" layoutY="683.0" text="" />
+      <Label fx:id="customerNum" layoutX="839.0" layoutY="683.0" text="" />
+      <Button layoutX="809.0" layoutY="761.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
+      <Button layoutX="884.0" layoutY="761.0" mnemonicParsing="false" onAction="#close" text="Close" />
+      <Label fx:id="contactSchedLabel" layoutX="506.0" layoutY="236.0" />
+      <TableView fx:id="tableSched" layoutX="15.0" layoutY="285.0" prefHeight="353.0" prefWidth="916.0">
+        <columns>
+          <TableColumn fx:id="apptID" prefWidth="50.0" text="Appt ID" />
+          <TableColumn fx:id="Title" prefWidth="93.0" text="Title" />
+            <TableColumn fx:id="Type" prefWidth="90.0" text="Type" />
+            <TableColumn fx:id="Desc" prefWidth="243.0" text="Description" />
+            <TableColumn fx:id="start" prefWidth="197.0" text="Start " />
+            <TableColumn fx:id="end" prefWidth="197.0" text="End" />
+            <TableColumn fx:id="custID" minWidth="1.0" prefWidth="45.0" text="Cust ID" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

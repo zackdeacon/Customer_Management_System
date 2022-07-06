@@ -1,0 +1,103 @@
+//Create users table
+CREATE TABLE IF NOT EXISTS users(
+User_ID int AUTO_INCREMENT PRIMARY KEY,
+User_Name varchar(50),
+Password text,
+Create_Date datetime,
+Created_By varchar(50),
+Last_Update timestamp,
+Last_Updated_By varchar(50)
+);
+
+//Create countries table
+CREATE TABLE IF NOT EXISTS countries(
+Country_ID int AUTO_INCREMENT PRIMARY KEY ,
+Country varchar(50),
+Create_Date datetime,
+Created_By varchar(50),
+Last_Update timestamp,
+Last_Updated_By varchar(50)
+);
+
+//Create contacts table
+CREATE TABLE IF NOT EXISTS contacts(
+Contact_ID int AUTO_INCREMENT PRIMARY KEY,
+Contact_Name varchar(50),
+Email varchar(50)
+);
+
+//Create first_level_divisions table
+CREATE TABLE IF NOT EXISTS first_level_divisions(
+Division_ID int AUTO_INCREMENT PRIMARY KEY,
+Division varchar(50),
+Create_Date datetime,
+Created_By varchar(50),
+Last_Update timestamp,
+Last_Updated_By varchar(50),
+Country_ID int,
+FOREIGN KEY (Country_ID)
+REFERENCES countries(Country_ID)
+On Update RESTRICT ON DELETE RESTRICT
+);
+
+//Create customers table
+CREATE TABLE IF NOT EXISTS customers(
+Customer_ID int AUTO_INCREMENT PRIMARY KEY,
+Customer_Name varchar(50),
+Address varchar(50),
+Postal_Code varchar(50),
+Phone varchar(50),
+Create_Date datetime,
+Created_By varchar(50),
+Last_Update timestamp,
+Last_Updated_By varchar(50),
+Division_ID int,
+FOREIGN KEY (Division_ID)
+REFERENCES first_level_divisions(Division_ID)
+ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+//Create appointments table
+CREATE TABLE IF NOT EXISTS appointments (
+Appointment_ID int AUTO_INCREMENT PRIMARY KEY,
+Title varchar(50),
+Description varchar(50),
+Location varchar(50),
+Type varchar(50),
+Start datetime,
+End datetime,
+Create_Date datetime,
+Created_By varchar(50),
+Last_Update timestamp,
+Last_Updated_By varchar(50),
+Customer_ID int,
+Contact_ID int,
+User_ID int,
+FOREIGN KEY (Customer_ID)
+REFERENCES customers (Customer_ID)
+On Update CASCADE ON DELETE CASCADE,
+Foreign KEY (Contact_ID)
+REFERENCES contacts(Contact_ID)
+On Update CASCADE ON DELETE CASCADE,
+FOREIGN KEY (User_ID)
+REFERENCES users (User_ID)
+On Update CASCADE ON DELETE CASCADE
+);
+
+//Create vip_customers table
+CREATE TABLE IF NOT EXISTS vip_customers(
+VIP_customer_ID int AUTO_INCREMENT PRIMARY KEY,
+Customer_Name varchar(50),
+Address varchar(50),
+Postal_Code varchar(50),
+Phone varchar(50),
+Company varchar(50),
+Create_Date datetime,
+Created_By varchar(50),
+Last_Update timestamp,
+Last_Updated_By varchar(50),
+Division_ID int,
+FOREIGN KEY (Division_ID)
+REFERENCES first_level_divisions(Division_ID)
+ON UPDATE CASCADE ON DELETE CASCADE
+);
