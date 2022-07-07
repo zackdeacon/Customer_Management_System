@@ -174,7 +174,7 @@ public class LoginController implements Initializable{
         Parent root = FXMLLoader.load(getClass().getResource("/view/create_user_form.fxml"));
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 600, 600);
-        stage.setTitle("Customer Landing Page");
+        stage.setTitle("Create User Page");
         stage.setScene(scene);
         stage.show();
     }
@@ -261,6 +261,12 @@ public class LoginController implements Initializable{
                 errorAlert.setTitle("Error");
                 errorAlert.setHeaderText("Not a valid search!");
                 errorAlert.setContentText("Please enter a name or ID to search for!");
+                errorAlert.showAndWait();
+                break;
+            case 13:
+                errorAlert.setTitle("Error");
+                errorAlert.setHeaderText("Nothing Selected!");
+                errorAlert.setContentText("Please select a customer to delete!");
                 errorAlert.showAndWait();
                 break;
         }

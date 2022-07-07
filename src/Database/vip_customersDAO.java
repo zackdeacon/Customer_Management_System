@@ -32,7 +32,8 @@ public class vip_customersDAO {
             int country_ID = result.getInt("Country_ID");
             int division_ID = result.getInt("Division_ID");
             String company = result.getString("Company");
-            customerResult = new vip_customer(VIP_customer_ID, customer_Name, Address, postal_Code, phone, division, country, country_ID, division_ID, company);
+            int customer_ID = 0;
+            customerResult = new vip_customer(VIP_customer_ID, customer_ID, customer_Name, Address, postal_Code, phone, division, country, country_ID, division_ID, company);
             //System.out.println(customerResult.getCustomer_Name());
             list.addAll(customerResult);
         }
@@ -43,7 +44,6 @@ public class vip_customersDAO {
 
     /**
      * Creates and saves customer records in the database.
-     *   @param customerID ID variable.
      *   @param name name variable.
      *   @param address address variable.
      *   @param postalCode Postal Code variable.
@@ -51,9 +51,35 @@ public class vip_customersDAO {
      *   @param user User variable.
      *   @param divisionID LDivision ID variable.
      */
-    public static void createCustomerSQL(int customerID, int divisionID, String name, String address, String postalCode, String phone, String user, String company) {
+    public static void createCustomerSQL(int divisionID, String name, String address, String postalCode, String phone, String user, String company) {
         JDBC.getConnection();
-        String sqlStmt = "INSERT INTO customers (Customer_Name, Address, Postal_Code, Phone, Company, Create_Date, Created_By, Last_Update, Last_Updated_By, Division_ID) VALUES ('"+ name +"', '"+ address +"', '"+ postalCode +"','"+ phone +"', '"+ company +"',sysdate(), '"+ user +"', sysdate(), '"+ user +"', "+ divisionID +");";
+        String sqlStmt = "INSERT INTO vip_customers (Customer_Name, Address, Postal_Code, Phone, Company, Create_Date, Created_By, Last_Update, Last_Updated_By, Division_ID) VALUES ('"+ name +"', '"+ address +"', '"+ postalCode +"','"+ phone +"', '"+ company +"',sysdate(), '"+ user +"', sysdate(), '"+ user +"', "+ divisionID +");";
         Query.makeQuery(sqlStmt);
+    }
+
+    /**
+     * Updates and saves customer records in the database.
+     *   @param ID ID variable.
+     *   @param name name variable.
+     *   @param address address variable.
+     *   @param postalCode Postal Code variable.
+     *   @param phone Phone Number variable.
+     *   @param user User variable.
+     *   @param divisionID LDivision ID variable.
+     */
+    public static void updateCustomerSQL(int ID, String name, String address, String postalCode, String phone, String user, int divisionID, String company) {
+        JDBC.getConnection();
+        String sqlStmt = "UPDATE vip_customers SET Customer_Name = '" + name + "', Address = '" + address + "', Postal_Code = '" + postalCode + "', Phone = '" + phone + "', Company = '" + company + "', Last_Update = sysdate(), Last_Updated_By = '" + user + "', Division_ID = '" + divisionID + "' WHERE VIP_customer_ID = '" + ID + "';";
+        Query.makeQuery(sqlStmt);
+    }
+
+    /**
+     * Deletes Customer record that matches passed Customer ID from the database.
+     *   @param custID VIP Customer ID variable.
+     */
+    public static void deleteCustomer(int custID) {
+        JDBC.getConnection();
+        String sqlstmt = "DELETE FROM vip_customers WHERE VIP_customer_ID = '" + custID + "';";
+        Query.makeQuery(sqlstmt);
     }
 }

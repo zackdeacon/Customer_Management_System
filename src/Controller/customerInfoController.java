@@ -331,7 +331,7 @@ public class customerInfoController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch(Exception e){
-            alertToDisplay(11);
+            alertToDisplay(13);
         }
     }
 

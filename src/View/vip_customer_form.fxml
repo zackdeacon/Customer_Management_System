@@ -18,7 +18,7 @@
       <TextField fx:id="customerPostalCode" layoutX="1040.0" layoutY="300.0" />
       <TextField fx:id="customerPhone" layoutX="1040.0" layoutY="350.0" />
       <TextField fx:id="customerCompanyName" layoutX="1040.0" layoutY="400.0" />
-      <ComboBox fx:id="customerCountry" layoutX="1040.0" layoutY="450.0" prefWidth="150.0" onAction="#countrySelected"/>
+      <ComboBox fx:id="customerCountry" layoutX="1040.0" layoutY="450.0" onAction="#countrySelected" prefWidth="150.0" />
        <ComboBox fx:id="customerDivision" layoutX="1040.0" layoutY="500.0" prefWidth="150.0" />
       <Label layoutX="574.0" layoutY="78.0" text="VIP Customers" />
       <Label layoutX="875.0" layoutY="204.0" text="Customer Name:" />
@@ -28,19 +28,18 @@
       <Label layoutX="875.0" layoutY="404.0" text="Customer Company Name:" />
       <Label layoutX="875.0" layoutY="454.0" text="Customer Country:" />
        <Label layoutX="875.0" layoutY="504.0" text="Customer Division:" />
-      <TableView fx:id="vipCustomerTable" layoutX="20.0" layoutY="200.0" prefHeight="442.0" prefWidth="811.0">
+      <TableView fx:id="vipCustomerTable" layoutX="20.0" layoutY="200.0" prefHeight="442.0" prefWidth="811.0" onMouseClicked="#updateVIP">
         <columns>
-          <TableColumn fx:id="customerIDCol" prefWidth="50.0" text="ID" />
           <TableColumn fx:id="customerNameCol" prefWidth="211.0" text="Customer Name" />
             <TableColumn fx:id="customerAddressCol" prefWidth="147.0" text="Address" />
             <TableColumn fx:id="customerPostalCodeCol" prefWidth="84.0" text="Postal Code" />
             <TableColumn fx:id="customerPhoneCol" prefWidth="62.0" text="Phone" />
             <TableColumn fx:id="customerCompanyNameCol" prefWidth="126.0" text="Company Name" />
-            <TableColumn fx:id="customerDivisionCol" prefWidth="61.0" text="Division" />
-            <TableColumn fx:id="customerCountryCol" prefWidth="69.0" text="Country" />
+            <TableColumn fx:id="customerDivisionCol" prefWidth="93.0" text="Division" />
+            <TableColumn fx:id="customerCountryCol" prefWidth="87.0" text="Country" />
         </columns>
       </TableView>
-      <Button layoutX="1054.0" layoutY="580.0" mnemonicParsing="false" onAction="#updateVIP" prefHeight="25.0" prefWidth="129.0" text="Update VIP" />
+      <Button layoutX="1054.0" layoutY="580.0" mnemonicParsing="false" onAction="#completeUpdatedVipCustomer" prefHeight="25.0" prefWidth="129.0" text="Update VIP"/>
       <Button layoutX="1054.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteVIP" prefHeight="25.0" prefWidth="129.0" text="Delete VIP" />
    </children>
 </AnchorPane>
